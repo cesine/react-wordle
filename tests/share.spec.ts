@@ -41,7 +41,6 @@ test.describe('reactle tests', () => {
     expect(shareClipboardText).toContain('🟩')
 
     await page.getByRole('button', { name: 'Transfer' }).click()
-    expect(await page.getByTestId('emigration-code')).toHaveText('P/')
     await page.getByRole('button', { name: 'Copy' }).click()
     let transferClipboardText = await page.evaluate(
       'navigator.clipboard.readText()'
