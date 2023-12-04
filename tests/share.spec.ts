@@ -31,13 +31,6 @@ test.describe('reactle tests', () => {
 
     await page.locator('body').press('Enter')
 
-    const elements = await page.$$('bg-green-500')
-    console.log(elements.length)
-
-    // TODO assert that there are some gray, yellow, and some green tiles
-    // const greenTiles = page.locator('css=bg-green-500');
-    // expect(greenTiles.length).toEqual(2)
-
     await page.getByRole('button', { name: 'Share' }).click()
     let shareClipboardText = await page.evaluate(
       'navigator.clipboard.readText()'
@@ -47,18 +40,15 @@ test.describe('reactle tests', () => {
     expect(shareClipboardText).toContain('🟨')
     expect(shareClipboardText).toContain('🟩')
 
-    // TODO assert on warnings
-    // await expect(page.getByText('Unable to share the results.')).toHaveText(
-    // 'Unable to share the results. This feature is available only in secure contexts (HTTPS), in some or all supporting browsers.'
-    // )
     await page.getByRole('button', { name: 'Transfer' }).click()
-    // expect(await page.getByTestId('emigration-code')).toHaveText('P/')
+    expect(await page.getByTestId('emigration-code')).toHaveText('P/')
     await page.getByRole('button', { name: 'Copy' }).click()
     let transferClipboardText = await page.evaluate(
       'navigator.clipboard.readText()'
     )
     expect(transferClipboardText).toContain('P/')
 
+    // Open sharing and transfer using the icon
     await page
       .getByLabel('Transfer your statistics')
       .getByRole('button')
