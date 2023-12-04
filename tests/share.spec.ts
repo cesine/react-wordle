@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 
 test.describe('reactle tests', () => {
   test('should be able to share and transfer stats', async ({ page }) => {
-    await page.goto('https://reactle.vercel.app/')
+    await page.goto('http://127.0.0.1:3000/')
     await page.getByLabel('How to play').getByRole('button').click()
 
     await page.keyboard.type('devote')
