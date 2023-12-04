@@ -9,7 +9,8 @@
     "lint": "prettier --check src",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "test:e2e": "npx playwright test",
+    "test:integration": "npx playwright test",
+    "test:e2e": "URL=https://reactle.vercel.app npm run test:integration",
     "prepare": "husky install"
   },
   "dependencies": {
