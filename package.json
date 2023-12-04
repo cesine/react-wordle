@@ -10,7 +10,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "test:integration": "npx playwright test",
-    "test:e2e": "URL=https://reactle.vercel.app npm run test:integration",
+    "test:e2e": "BASE_URL=${BASE_URL:-https://reactle.vercel.app} npm run test:integration",
     "prepare": "husky install"
   },
   "dependencies": {
